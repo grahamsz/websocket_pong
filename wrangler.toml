@@ -1,0 +1,17 @@
+name = "pongtest"
+account_id = "be6d9551027f8de4ef9308da395f8068"
+workers_dev = true
+main="dist/index.mjs"
+compatibility_date = "2022-11-04"
+
+[build]
+command = "npm install && npm run build"
+# The "modules" upload format is required for all projects that export a Durable Objects class
+
+[durable_objects]
+bindings = [{name = "PONG", class_name = "Pong"}]
+
+[[migrations]]
+tag = "v1" # Should be unique for each entry
+new_classes = ["Pong"]
+
